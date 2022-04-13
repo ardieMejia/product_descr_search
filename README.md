@@ -10,3 +10,21 @@ In short, the script cleans HTML text and we're looking to extract data from tha
 2. Out put clean text to file
 3. Extract strings
 4. Structures stings into JSON or CSV format.
+
+Example Output
+
+```
+{
+  "domain": "example.com",
+  "post_id": "123",
+  "affiliate_commission": {
+    "commission_1": "30%",
+    "commission_2": "25%"
+  },
+  "affiliate_payout": {
+    "payout_1": "paypal",
+    "payout_2": "wire transfer"
+  }
+}
+
+```
