@@ -1,14 +1,46 @@
 #!/bin/bash
 
-domain=activecampaign.com/partner/affiliate
+
+
+# domain=activecampaign.com/partner/affiliate
+url=https://xoba.co.uk/affiliate
+domain=xoba.co.uk/affiliate
+# url=https://clearout.io/affiliate
+# domain=clearout.io/affiliate
 #url=adzooma.com
 #post_id=12
 #
 reponame=$(echo "$domain" | iconv -c -t ascii//TRANSLIT | sed -E 's/[~^]+//g' | sed -E 's/[^a-zA-Z0-9]+/-/g' | sed -E 's/^-+|-+$//g' | tr A-Z a-z)
+echo $reponame
+# echo $reponame | awk '{ sub("://", "-");gsub("\.","-");gsub("/","-"); print }'
 
 ##-->> Trafilature is used to clean and process the html page to plain text.
 #
-trafilatura -u https://$domain >$PWD/$reponame.txt
+read -n 1 -p "trafilatura (enter t) or justext (enter j) or readability (enter r)" answer
+if [[ "$answer" == "t" ]]; then
+    trafilatura -u https://$domain >$PWD/$reponame.txt
+elif [[ "$answer" == "j" ]]; then
+    echo "You dont have trafilatura. Using justext"
+    # we activate python virtual environment then we quit, very quick, as this is only for result
+    source env/bin/activate
+    python -m justext -s English -o ./$reponame.txt $url
+    deactivate
+elif [[ "$answer" == "r" ]]; then
+    echo "You dont have trafilatura. Using justext"
+    # we activate python virtual environment then we quit, very quick, as this is only for result
+    source env/bin/activate
+    python -m justext -s English -o ./$reponame.txt $url
+    deactivate
+
+
+
+
+
+    # exit
+fi
+
+
+
 
 #echo $output
 
