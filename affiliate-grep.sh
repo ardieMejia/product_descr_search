@@ -58,59 +58,186 @@ clean=$(cat $reponame.txt)
 
 output=$clean
 
-##-->> Looking for xx% plus commission
-# Really what we want is a way to find anything between, the percentage value and probably the word commission.
-# For example:
-# 20% lifetime recurring commission
-# 30% reccuring monthly commission
-echo $output | grep -oE -i '[0-9][0-9]\%+' | head -3
-echo $output | grep -oE -i '[0-9][0-9]\% (commission)' | sort -u | head -3
-echo $output | grep -oE -i '[0-9][0-9]\% (monthly commission)' | sort -u | head -3
-echo $output | grep -oE -i '[0-9][0-9]\% (recurring commission)' | sort -u | head -3
+# ===== QUESTIONS_TO_SELF: there must be a way to check numbers paired with percentage. Any chance of % with no numbers?
+# ===== QUESTIONS_TO_SELF: do orders of search terms matter? Should we exclude some? (Eg: include "commission,every,%" but exclude "commission,%,every")
 
-##-->> Credit Only
-# Some offer credit and not payout much like Digital Ocean
-#
-##-->> This is just finding the single values for now for testing
-echo $output | grep -Eo -i '(recurring)' | sort -u | head -1
-echo $output | grep -Eo '(commission)' | sort -u | head -1
-echo $output | grep -oE 'Up to' | sort -u | head -1
-echo $output | grep -oEi '(lifetime commission)' | sort -u | head -1
+# ----- for now our code uses only dots(.) as record separator. Mayben we expand using variables
+# ----- note the Record Separator can be expanded, as we decide to "zoom in" or "zoom out" on search result
+# ========== awkString='BEGIN{RS="to|[:.]"}{print $0}'
 
-##-->> Payout method
-echo $output | grep -Eoi '(paypal)' | sort -u | head -1
-echo $output | grep -Eoi '(paypal)' | sort -u | head -1
 
-##-->> Payout Period
-# Monthly payouts (no minimum)
-# Minimum balance of $50 before we can process
-echo $output | grep -E -o -i 'monthly payout' | sort -u | head -1
-echo $output | grep -E -o -i 'no minimum' | sort -u | head -1
 
-##-->> Per Sale based commission and not a percentage value.
-echo $output | grep -Eoi '(every sale)' | sort -u | head -1
+# ---------- dot-separation + case-insensitive search
+echo $output | awk 'BEGIN{RS="[:.]"}{if(tolower($0) ~ "commission") print $0}'
 
-##-->> Cookie Period / Window
-# This value will change and might not be mentioned at all
-# For Example:
-# 120 day cookie window
-echo $output | grep -Eoi 'cookies' | sort -u | head -1
 
-#30% commission rate
-#25% from each payment credited into your account
 
-#done
 
-#echo $output | grep -Eo '[:digit:]'
-#echo $output | grep -Eo '^[0-9]\{1,5\}$'
-#echo $output | awk -n "/[^0-9]*/,/cookies/p"
-#echo $output | grep -oE -P -i '(?<=[0-9][0-9]).*(?=cookies)'
-#echo $output | sed -e 's/[0-9][0-9]\(.*\)cookies/\1/'
-#echo $output | sed -n '/[0-9]/,/cookies/p'
-#echo $output | grep -E '(lifetime|Lifetime)' | sort -u | head -1
-#echo $output | grep -E '(paypal|Paypal)' | sort -u | head -1
-#echo $output | grep -Eoi '(?[0-9][0-9])(\bwindow)' | sort -u | head -1
-#echo $output | ggrep -oP '(?<=commision\s/)\w+'
-#echo $output | ggrep -oP '(?<=commision\s: )[^ ]*'
 
-#grep -E -i 'og\:description' | grep -E -i 'minimum' | grep -E -w -v '20% commission'
+recordSeparator="[:.!]"
+
+# ---------- Parent tree (mostly)
+# ---------- Parent tree terms must exclude subtree terms (Eg: "every" is a subtree to this, so 'non-recurring' must exclude "every")
+# ------------------------------ NON-RECURRING ------------------------------
+echo "---------- non-recurring ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if (tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) !~ "every" \
+&& tolower($0) !~ "flat" && tolower($0) !~ "first purchase" && tolower($0) !~ "fixed" && tolower($0) !~ "per" \
+&& tolower($0) !~ "order" && tolower($0) !~ "refer" && tolower($0) !~ "recurring" \
+) print $0}'
+
+# ------------------------------ EVERY ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- every ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "every") print $0}'
+
+
+# ------------------------------ FLAT ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- flat ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "flat") print $0}'
+
+
+# ------------------------------FIRST PURCHASE ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- first purchase ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "first purchase") print $0}'
+
+
+# ------------------------------ FIXED ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- fixed ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "fixed") print $0}'
+
+
+# ------------------------------ PER (NOT PERIOD) ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- per (NOT period) ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "per") print $0}'
+
+
+# ------------------------------ ONCE OFF ------------------------------
+# ---------- dot-separation + case-insensitive search + "commission" && "%" && "flat"
+echo "---------- once off ----------"
+# echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "per") print $0}'
+
+
+# ------------------------------ COMMISSION ORDER ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- commission order ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "order") print $0}'
+
+
+# ------------------------------ COMMISSION REFERRAL ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- commission order ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "refer") print $0}'
+
+
+# ------------------------------ COMMISSION PURCHASE ------------------------------
+# ---------- subtree (to non-recurring)
+echo "---------- commission purchase ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "purchase") print $0}'
+
+
+# ------------------------------ COMMISSION SALE ------------------------------
+# -------------------- has unique "affiliate", so this might change
+# ---------- subtree (to non-recurring)
+echo "---------- commission sale ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "sale") print $0}'
+
+
+# ------------------------------ RECURRING ------------------------------
+# ---------- subtree (to non-recurring)
+# ---------- parent (to others below)
+echo "---------- recurring ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+&& tolower($0) !~ "monthly" && tolower($0) !~ "sales" ) \
+{ num=split($0, a, "%"); if(num < 3) print $0 } \
+}'
+# echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "%") num=split($0, a, "%"); if(num > 2) print $0;}'
+
+
+# ------------------------------ RECURRING MONTHLY ------------------------------
+# ---------- subtree (to recurring)
+echo "---------- recurring monthly ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+&& tolower($0) ~ "monthly" \
+) print $0}'
+
+
+# ------------------------------ SALES ------------------------------
+# ---------- subtree (to recurring)
+echo "---------- sales ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+&& tolower($0) ~ "sale" \
+) print $0}'
+
+
+# ------------------------------ REVENUE ------------------------------
+# ---------- (unique)
+echo "---------- revenue ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "revenue" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+) print $0}'
+
+
+# ------------------------------ FEES ------------------------------
+# ---------- (unique)
+echo "---------- fees ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "fee" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+) print $0}'
+
+
+# ------------------------------ INITIAL + RECURRING ------------------------------
+# ---------- (unique)
+# ----- may include additional condition like "sales"
+echo "---------- initial + recurring ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "initial" && tolower($0) ~ "%" && tolower($0) ~ "recurring" \
+) print $0}'
+
+
+# ------------------------------ SALES + RENEWALS ------------------------------
+# ---------- (unique)
+echo "---------- sales + renewals ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "sale" && tolower($0) ~ "%" && tolower($0) ~ "renewal" \
+) print $0}'
+
+
+# ------------------------------ LIFETIME ------------------------------
+# ---------- (assume unique)
+echo "---------- lifetime ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "lifetime" && tolower($0) ~ "%" \
+) print $0}'
+
+
+# ------------------------------ MULTI COMMISSION ------------------------------
+# ---------- subtree (to recurring) (we exclude multi-% in 'recurring')
+echo "---------- multi commission ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "%") { num=split($0, a, "%"); if(num > 2) print $0;} }'
+
+
+# ------------------------------ COOKIES ------------------------------
+# ---------- (unique)
+echo "---------- cookies ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "cookie" && tolower($0) ~ "[0-9]") print $0; }'
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "link" && tolower($0) ~ "tracking") print $0; }'
+
+
+# ------------------------------ PAYMENT METHOD ------------------------------
+# ---------- (unique & several combinations)
+echo "---------- payment method ----------"
+paymentm=("paypal" "credit" "bank transfer" "wire transfer" "payoneer" "wise transfer" "payone" "cheque" "check" "bitcoin")
+for i in ${paymentm[@]}
+do
+    echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "pay" && tolower($0) ~ "'$i'") print $0; }'
+    echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "paid" && tolower($0) ~ "'$i'") print $0; }'
+done
+
+
+
+# ------------------------------ MONTHLY PAYOUT / MINIMUM PAYOUT------------------------------
+# ---------- (unique)
+echo "---------- payout ----------"
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "monthly" && tolower($0) ~ "payout") print $0; }'
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "minimum" && tolower($0) ~ "payout") print $0; }'
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "monthly" && tolower($0) ~ "withdrawal") print $0; }'
+echo $output | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "minimum" && tolower($0) ~ "withdrawal") print $0; }'
