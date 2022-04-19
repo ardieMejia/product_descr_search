@@ -1,10 +1,12 @@
 #!/bin/bash
 
 
+localOnly=1
+hardFile=1 # ---------- harder than localOnly
 
 # domain=activecampaign.com/partner/affiliate
-url=https://xoba.co.uk/affiliate
-domain=xoba.co.uk/affiliate
+url=https://meetfox.com/en/affiliate
+domain=meetfox.com/en/affiliate
 # url=https://clearout.io/affiliate
 # domain=clearout.io/affiliate
 #url=adzooma.com
@@ -27,12 +29,10 @@ if [[ localOnly -eq 0 ]]; then
         source env/bin/activate
         python -m justext -s English -o ./$reponame.txt $url
         deactivate
-    elif [[ "$answer" == "r" ]]; then
-        echo "You dont have trafilatura. Using justext"
+    elif [[ "$answer" == "w" ]]; then
+        echo "You dont have trafilatura. Now using w3m"
         # we activate python virtual environment then we quit, very quick, as this is only for result
-        source env/bin/activate
-        python -m justext -s English -o ./$reponame.txt $url
-        deactivate
+        w3m -dump $url >./$reponame.txt
 
 
 
@@ -43,6 +43,9 @@ if [[ localOnly -eq 0 ]]; then
     fi
 fi
 
+if [[ hardFile -eq 1 ]]; then
+    reponame="mytest"
+fi
 
 
 #echo $output
