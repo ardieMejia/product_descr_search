@@ -256,10 +256,16 @@ check_tools () {
             python -m justext -s English -o ./repoFiles/$reponame.txt $i
             deactivate
         elif [[ "$answer" == "w" ]]; then
+            if [[ ! -d repoOutput/w3m ]];then
+                mkdir ./repoOutput/w3m
+            fi
             rm -v ./repoOutput/w3m/*txt
             echo "=============================="
             echo "You dont have trafilatura. Now using w3m"
         elif [[ "$answer" == "c" ]]; then
+            if [[ ! -d repoOutput/curl ]];then
+                mkdir ./repoOutput/curl
+            fi
             rm -v ./repoOutput/curl/*txt
             echo "=============================="
             echo "No fancy parsing tool. Now using curl command"
@@ -275,14 +281,27 @@ check_tools () {
 }
 
 
-# ===== clean some files
-rm -v ./repoFiles/*txt
+
 
 
 
 
 localOnly=0
 hardFile=0 # ---------- harder than localOnly
+
+if [[ ! -d repoFiles ]];then
+    mkdir ./repoFiles
+fi
+if [[ ! -d repoOutput ]];then
+    mkdir ./repoOutput
+fi
+if [[ ! -d tmp ]];then
+    mkdir ./tmp
+fi
+
+# ===== clean some files
+rm -v ./repoFiles/*txt
+
 
 
 #
