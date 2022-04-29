@@ -1,0 +1,562 @@
+	
+	
+	
+	
+	
+	Become An Affiliate
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	,"image":},,"potentialAction":["},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},,"datePublished":"2018-03-26T12:42:27+00:00","dateModified":"2022-02-22T10:27:31+00:00","description":"Earn up to 60% commission for every referral, and get yearly recurring commissions.","breadcrumb":,"inLanguage":"en-US","potentialAction":[]},,]}]}
+	
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+	
+body.has-black-color.has-cyan-bluish-gray-color.has-white-color.has-pale-pink-color.has-vivid-red-color.has-luminous-vivid-orange-color.has-luminous-vivid-amber-color.has-light-green-cyan-color.has-vivid-green-cyan-color.has-pale-cyan-blue-color.has-vivid-cyan-blue-color.has-vivid-purple-color.has-black-background-color.has-cyan-bluish-gray-background-color.has-white-background-color.has-pale-pink-background-color.has-vivid-red-background-color.has-luminous-vivid-orange-background-color.has-luminous-vivid-amber-background-color.has-light-green-cyan-background-color.has-vivid-green-cyan-background-color.has-pale-cyan-blue-background-color.has-vivid-cyan-blue-background-color.has-vivid-purple-background-color.has-black-border-color.has-cyan-bluish-gray-border-color.has-white-border-color.has-pale-pink-border-color.has-vivid-red-border-color.has-luminous-vivid-orange-border-color.has-luminous-vivid-amber-border-color.has-light-green-cyan-border-color.has-vivid-green-cyan-border-color.has-pale-cyan-blue-border-color.has-vivid-cyan-blue-border-color.has-vivid-purple-border-color.has-vivid-cyan-blue-to-vivid-purple-gradient-background.has-light-green-cyan-to-vivid-green-cyan-gradient-background.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background.has-luminous-vivid-orange-to-vivid-red-gradient-background.has-very-light-gray-to-cyan-bluish-gray-gradient-background.has-cool-to-warm-spectrum-gradient-background.has-blush-light-purple-gradient-background.has-blush-bordeaux-gradient-background.has-luminous-dusk-gradient-background.has-pale-ocean-gradient-background.has-electric-grass-gradient-background.has-midnight-gradient-background.has-small-font-size.has-medium-font-size.has-large-font-size.has-x-large-font-size
+.woocommerce form .form-row .required 
+[data-font="FontAwesome"]:before 
+ 
+		
+			#secondary .widget h3, #secondary .widget h3 a, #secondary .widget h4, #secondary .widget h1, #secondary .widget h2, #secondary .widget h5, #secondary .widget h6 
+			#secondary .widget a, #secondary a, #secondary .widget li a , #secondary span.sub-arrow
+			#secondary, #secondary .widget, #secondary .widget p, #secondary .widget li, .widget time.rpwe-time.published 
+			#secondary .swidgets-wrap, #secondary .widget ul li, .featured-sidebar .search-field 
+			.site-info, .footer-column-three input.search-submit, .footer-column-three p, .footer-column-three li, .footer-column-three td, .footer-column-three th, .footer-column-three caption 
+			.footer-column-three h3, .footer-column-three h4, .footer-column-three h5, .footer-column-three h6, .footer-column-three h1, .footer-column-three h2, .footer-column-three h4, .footer-column-three h3 a 
+			.footer-column-three a, .footer-column-three li a, .footer-column-three .widget a, .footer-column-three .sub-arrow 
+			.footer-column-three h3:after 
+			.site-info, .widget ul li, .footer-column-three input.search-field, .footer-column-three input.search-submit 
+			.site-footer 
+			.archive .page-header h1, .blogposts-list h2 a, .blogposts-list h2 a:hover, .blogposts-list h2 a:active, .search-results h1.page-title 
+			.blogposts-list .post-data-text, .blogposts-list .post-data-text a
+			.blogposts-list p 
+			.page-numbers li a, .blogposts-list .blogpost-button 
+			.page-numbers li a, .blogposts-list .blogpost-button, span.page-numbers.dots, .page-numbers.current, .page-numbers li a:hover 
+			.archive .page-header h1, .search-results h1.page-title, .blogposts-list.fbox, span.page-numbers.dots, .page-numbers li a, .page-numbers.current 
+			.blogposts-list .post-data-divider 
+			.page .comments-area .comment-author, .page .comments-area .comment-author a, .page .comments-area .comments-title, .page .content-area h1, .page .content-area h2, .page .content-area h3, .page .content-area h4, .page .content-area h5, .page .content-area h6, .page .content-area th, .single  .comments-area .comment-author, .single .comments-area .comment-author a, .single .comments-area .comments-title, .single .content-area h1, .single .content-area h2, .single .content-area h3, .single .content-area h4, .single .content-area h5, .single .content-area h6, .single .content-area th, .search-no-results h1, .error404 h1 
+			.single .post-data-text, .page .post-data-text, .page .post-data-text a, .single .post-data-text a, .comments-area .comment-meta .comment-metadata a 
+			.page .content-area p, .page article, .page .content-area table, .page .content-area dd, .page .content-area dt, .page .content-area address, .page .content-area .entry-content, .page .content-area li, .page .content-area ol, .single .content-area p, .single article, .single .content-area table, .single .content-area dd, .single .content-area dt, .single .content-area address, .single .entry-content, .single .content-area li, .single .content-area ol, .search-no-results .page-content p 
+			.single .entry-content a, .page .entry-content a, .comment-content a, .comments-area .reply a, .logged-in-as a, .comments-area .comment-respond a 
+			.comments-area p.form-submit input 
+			.error404 .page-content p, .error404 input.search-submit, .search-no-results input.search-submit 
+			.page .comments-area, .page article.fbox, .page article tr, .page .comments-area ol.comment-list ol.children li, .page .comments-area ol.comment-list .comment, .single .comments-area, .single article.fbox, .single article tr, .comments-area ol.comment-list ol.children li, .comments-area ol.comment-list .comment, .error404 main#main, .error404 .search-form label, .search-no-results .search-form label, .error404 input.search-submit, .search-no-results input.search-submit, .error404 main#main, .search-no-results section.fbox.no-results.not-found
+			.single .post-data-divider, .page .post-data-divider 
+			.single .comments-area p.form-submit input, .page .comments-area p.form-submit input 
+			.bottom-header-wrapper 
+			.bottom-header-wrapper 
+			.bottom-header-wrapper 
+			.bottom-header-wrapper *
+			.header-widget a, .header-widget li a, .header-widget i.fa 
+			.header-widget, .header-widget p, .header-widget li, .header-widget .textwidget 
+			.header-widget .widget-title, .header-widget h1, .header-widget h3, .header-widget h2, .header-widget h4, .header-widget h5, .header-widget h6
+			.header-widget.swidgets-wrap, .header-widget ul li, .header-widget .search-field 
+		
+			.woocommerce-product-gallery
+		
+	
+	
+		window.dataLayer = window.dataLayer || [];
+		function gtag()
+		gtag('js', new Date());
+		gtag('config', 'UA-120617541-1');
+	
+			
+			.wp-block-spacer {
+	float:left;
+	width:100%;
+}
+		
+		.rll-youtube-player, [data-lazy-src]
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+})(window,document,'script','dataLayer','GTM-TV6G78P');
+	
+  
+    
+      
+        
+           
+            
+           
+          
+          
+            Claim 40% Discount 
+             Limited time offer – Up to 40% Discount
+          
+        
+      
+    
+  
+  
+   jQuery(function ($) {
+    $(document).ready(function () {
+      $(".superb_discount_bar_content_reveal_bonus").click(function(){
+        $(".superb_discount_bar_wrapper").toggleClass("superb_discount_bar_content_wrapper_show_coupon");
+      });
+				// Set the date we're counting down to
+        var countDownDate = new Date("2025-12-12T23:59:59").getTime();
+        var removed = false;
+        var shown = false;
+        updateTime();
+        var x;
+        if(!removed) {
+			// Update the count down every 1 second
+			x = setInterval(function() {
+				updateTime();
+			}, 1000);
+		}
+		
+		function updateTime(){
+			// Get today's date and time
+      var now = new Date().getTime();
+		  // Find the distance between now and the count down date
+		  var distance = countDownDate - now;
+		  // Time calculations for days, hours, minutes and seconds
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		  // Display the result in the element with id="superb_discount_bar_countdown"
+		  // document.getElementById("superb_discount_bar_countdown").innerHTML = "" + days + "Days" + "" + hours + "Hours" + ""  + minutes + "Minutes" +"" + seconds + "Seconds" +"";
+      var top_element = document.getElementById("superb_discount_bar_countdown");
+      var pricing_element = document.getElementById("superb_discount_bar_countdown_pricing");
+      if(top_element != null){
+        top_element.innerHTML = "" + hours + "Hours" + ""  + minutes + "Minutes" +"" + seconds + "Seconds" +"";
+      }
+      if(pricing_element != null){
+        pricing_element.innerHTML = "" + hours + "Hours" + ""  + minutes + "Minutes" +"" + seconds + "Seconds" +"";
+      }
+		  // If the count down is finished, write some text
+		  if (distance < 0) {
+       removed = true;
+       clearInterval(x);
+       if(top_element != null){
+         top_element.innerHTML = "EXPIRED";
+       }
+       if(pricing_element != null){
+         pricing_element.innerHTML = "EXPIRED";
+       }
+       $("#superb_discount_bar").remove();
+     } else if(!shown) {
+       shown = true;
+       $("#superb_discount_bar").show();
+     }
+   }
+ });
+  });
+	
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TV6G78P"
+height="0" width="0" style="display:none;visibility:hidden">
+		
+			
+				Menu
+				
+					
+						
+							
+								            
+							
+						
+						Products
+	Premium Themes
+	Free Themes
+	Plugins
+Maintenance
+Blog
+	Best WordPress Hosting
+	Cheap WordPress Hosting
+	Green WordPress Hosting
+	Useful WordPress Plugins
+Earn
+	Affiliate Program
+	Become a seller
+Login
+	My account
+	License key
+	Cart
+	Checkout
+Contact
+						
+					
+				
+				
+					
+						
+							
+								            
+							
+						
+						Menu
+					
+				
+				
+			
+			
+				
+	
+		Become An Affiliate
+		Earn up to 60% commission for every referral, and get yearly recurring commissions. Finding affiliate programs that offer better commissions than ours is no easy task!
+		Join Affiliate Program
+	
+	
+		Here's how it works!
+		It’s exciting that you want to join our affiliate program! There are a few rules you’re gonna have to follow.
+		
+			
+				 Promote our products on your blog.
+				 Use Write educational or tutorial based articles.
+				 Write reviews or list articles promoting our products.
+				 Promote our products on social media.
+				 Create demo videos and video blogs on our products on your own channels.
+				 Publish product comparisons, white papers, infographics, images and case studies.
+				 Send Your Affiliate Link To Your Email Subscribers.
+				 Place our logo and banners on your website.
+				 The minimum payout threshold is $200.
+				 Cookie duration starts at 30 days.
+			
+			
+				 Use coupon codes as advertisements.
+				 Use your affiliate link on a coupon, promo, or deal site.
+				 Use "SuperbThemes" in your domain/personal branding.
+				 Alter our logos or creatives without our consent.
+				 Falsely misrepresent SuperbThemes in any way.
+			
+		
+	
+	
+		Spread The Word and Earn
+		
+			Sign up as an affiliate partner – Each customer you refer grows your affiliate empire, so you can earn money while you sleep, just for telling people about the themes and plugins on SuperbThemes!
+		
+		
+			
+				Upto 60% Commission
+				We strive to have industry-leading commission rates. Finding affiliate programs that offer better commissions than ours is no easy task.
+			
+			
+				Recurring Revenue
+				We payout commissions on yearly renewals. This means that you will continue making money each year as customers pay their yearly renewal fees!
+			
+			
+				Sell More, Earn More
+				We reward our best-performing affiliates with incredible commissions. Our best-performing affiliates earn way more than us each sale.
+			
+			
+				Dedicated Affiliate Manager
+				We have an awesome affiliate manager who's ready to assist Monday to Friday if you need promotional assets or have any questions. ​
+			
+		
+	
+	
+		
+			
+				
+					
+						Hi! It's lovely that you're intested in our affiliate program! Don't forget to read our  Terms Of Service and Affiliate Program Terms.
+					
+					
+						
+ 
+    First Name
+    
+  
+    Last Name
+    
+  
+    Your Email
+    
+  
+    Website
+    
+  
+  Country
+    
+  
+    Average Monthly Visitors
+    
+  
+    About Your Business
+    
+  
+I have read and agree to SuperbThemes Terms Of Service and Affiliate Program Terms of Service. *
+    
+  
+					
+				
+			
+		
+	
+	
+		
+			
+				
+					
+				
+				We build breathtaking WordPress themes and write in-depth articles. Our customer support is top notch. 
+				 
+				
+			 
+			
+				Resources
+				
+					Privacy Policy
+					Terms of Service
+					Recent Articles 
+					Contact Us
+				
+			
+			
+				Company
+				
+					About us
+					Write For Us
+					Hire us
+					Affiliate Program
+				
+			
+			
+				
+				Newsletter
+				We only send emails a few times a year with discounts, free premium products, and other goodies!
+			Email...	
+		
+	
+	
+		
+			Secure Payment
+			
+				
+				
+				
+				
+				
+				
+			
+		
+	
+	 
+		
+			
+	
+	
+		
+		
+			Subscribe to our newsletter and try our WordPress themes & plugins for FREE!
+			Sign up for our monthly newsletter and gain instant access to our free themes and plugins. We only send emails a few times a year, with discounts, free premium products, and other goodies.
+			
+			
+				
+					
+						
+							
+								<path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"
+								/>
+							
+							
+								Oh no, it seems like something is wrong with the email.
+							
+						
+					
+					
+					
+						
+							
+								<path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"
+								/>
+							
+							
+								Hooray, you are now subscribed!
+							
+						
+					
+					
+					
+						
+							loading
+						
+						
+							something went wrong. please try again.
+							
+								click here to try again
+							
+						
+						<form id="sib-form" method="POST" action="https://c54dd4d3.sibforms.com/serve/MUIEAK2AEm4jLJO0okS2Kj-RrDtR2bSNRULmOZ5QaCgVDWITMgAhC-isVw8WXzPYZFwqg3ctIYUxqcJ-x8vqu6-bQ3MBI3gc3svmlqd5aUH6ZtzcpwvRlWhGnxDjx_Ff7TqyysuSrwSUQoG89q1AY2tOu-9VXGfvroTfMG6DoT7GKgwYs8BeRCfm00KBMKdNVLceP3tAysHjC9Oz"
+						data-type="subscription" style="display:none;">
+						
+							
+								
+									
+										
+											function handleCaptchaResponse() {
+												var event = new Event('captchaChange');
+												document.getElementById('sib-captcha').dispatchEvent(event);
+											}
+										
+										
+									
+									
+									
+								
+							
+						
+						
+							
+								
+									
+										
+											
+												
+											
+										
+										
+										
+									
+								
+							
+							
+								
+									
+										
+											<path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"
+											/>
+										
+										Subscribe
+									
+								
+							
+						
+						
+						
+					
+				
+			
+		
+		
+			jQuery(document).ready(function($) {
+				let sibIsLoaded = false;
+				let recapIsLoaded = false;
+				function showSibForm(display = true){
+					if(!display){
+						$("#sib-load-fail").hide();
+						$("#sib-preload-spinner").show();
+						$("#sib-form").hide();
+					} else if(sibIsLoaded && recapIsLoaded){
+						$("#sib-load-fail").hide();
+						$("#sib-preload-spinner").hide();
+						$("#sib-form").show();
+					} else {
+						$("#sib-load-fail").show();
+						$("#sib-preload-spinner").hide();
+						$("#sib-form").hide();
+					}
+				}
+				$("#sib-reload-btn").click(function(){
+					showSibForm(false);
+					loadSib();
+				});
+				$(".newsletter-popup-btn").click(function(){
+					loadSib();
+				});
+				function loadSib(){
+					if(!sibIsLoaded) {
+						sibIsLoaded = true;
+						$.getScript("https://sibforms.com/forms/end-form/build/main.js", function(data, tstatus, jqxhr){
+							if(jqxhr.status !== 200){
+								sibIsLoaded = false;
+							}
+							loadRecap();
+						});
+					} else {
+						loadRecap();
+					}
+				}
+				function loadRecap(){
+					if(!recapIsLoaded){
+						recapIsLoaded = true;
+						$.getScript("https://www.google.com/recaptcha/api.js?hl=en%22%3E", function(data, tstatus, jqxhr){
+							if(jqxhr.status !== 200){
+								recapIsLoaded = false;
+							}
+							showSibForm();
+						});
+					} else {
+						showSibForm();
+					}
+				}
+			});
+		
+		
+			window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+			window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+			window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+			window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+			window.translation = {
+				common: {
+					selectedList: ' list selected',
+					selectedLists: ' lists selected'
+				}
+			};
+			var AUTOHIDE = Boolean(0);
+		
+		
+	
+	
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	
+	
+/* <![CDATA[ */
+var wc_country_select_params = ,\"AO\":,\"AR\":,\"AT\":[],\"AU\":,\"AX\":[],\"BD\":,\"BE\":[],\"BG\":,\"BH\":[],\"BI\":[],\"BJ\":,\"BO\":,\"BR\":,\"CA\":,\"CH\":,\"CL\":,\"CN\":,\"CO\":,\"CR\":,\"CZ\":[],\"DE\":[],\"DK\":[],\"DO\":,\"DZ\":,\"EE\":[],\"EC\":,\"EG\":,\"ES\":,\"FI\":[],\"FR\":[],\"GF\":[],\"GH\":,\"GP\":[],\"GR\":,\"GT\":,\"HK\":,\"HN\":,\"HU\":,\"ID\":,\"IE\":,\"IN\":,\"IR\":,\"IS\":[],\"IT\":,\"IL\":[],\"IM\":[],\"JM\":,\"JP\":,\"KE\":,\"KR\":[],\"KW\":[],\"LA\":,\"LB\":[],\"LR\":,\"LU\":[],\"MD\":,\"MQ\":[],\"MT\":[],\"MX\":,\"MY\":,\"MZ\":,\"NA\":,\"NG\":,\"NL\":[],\"NO\":[],\"NP\":,\"NI\":,\"NZ\":,\"PA\":,\"PE\":,\"PH\":,\"PK\":,\"PL\":[],\"PR\":[],\"PT\":[],\"PY\":,\"RE\":[],\"RO\":,\"SG\":[],\"SK\":[],\"SI\":[],\"SV\":,\"TH\":,\"TR\":,\"TZ\":,\"LK\":[],\"RS\":,\"SE\":[],\"UA\":,\"UG\":,\"UM\":,\"US\":,\"UY\":,\"VE\":,\"VN\":[],\"YT\":[],\"ZA\":,\"ZM\":}","i18n_select_state_text":"Select an option\u2026","i18n_no_matches":"No matches found","i18n_ajax_error":"Loading failed","i18n_input_too_short_1":"Please enter 1 or more characters","i18n_input_too_short_n":"Please enter %qty% or more characters","i18n_input_too_long_1":"Please delete 1 character","i18n_input_too_long_n":"Please delete %qty% characters","i18n_selection_too_long_1":"You can only select 1 item","i18n_selection_too_long_n":"You can only select %qty% items","i18n_load_more":"Loading more results\u2026","i18n_searching":"Searching\u2026"};
+/* ]]> */
+/* <![CDATA[ */
+var yith_wcaf = ,"ajax_url":"https:\/\/superbthemes.com\/wp-admin\/admin-ajax.php","set_cookie_via_ajax":"","referral_var":"ref","search_products_nonce":"87252be2a7","set_referrer_nonce":"cccc0fe786","get_withdraw_amount":"5dfdc86919"};
+/* ]]> */
+/* <![CDATA[ */
+var wpcf7 = ,"cached":"1"};
+/* ]]> */
+/* <![CDATA[ */
+var woocommerce_params = ;
+/* ]]> */
+/* <![CDATA[ */
+var wc_cart_fragments_params = ;
+/* ]]> */
+/* <![CDATA[ */
+var cnArgs = ;
+/* ]]> */
+/* <![CDATA[ */
+var wpcf7_recaptcha = };
+/* ]]> */
+jQuery(function($) { 
+			$( '.add_to_cart_button:not(.product_type_variable, .product_type_grouped)' ).on( 'click', function() {
+				gtag( 'event', 'add_to_cart',  ] } );
+			});
+		
+ });
+
+		
+		We use cookies to provide functionality and improved security. We also use 3rd-party cookies for advertising &amp; to improve your experience.Okay
+			
+		
+		window.lazyLoadOptions=}}}}};window.addEventListener('LazyLoad::Initialized',function(e)
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function')
