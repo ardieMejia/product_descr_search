@@ -105,8 +105,6 @@ rm -v ./middle/*txt
 
 
 
-urlList=( "https://www.mrdiy.com.my/default/automotive/car-interior/steering-wheel-accessories/steering-cover-ec038-9002958-001001" )
-
 
 
 IFS=","
