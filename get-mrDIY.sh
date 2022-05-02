@@ -18,7 +18,7 @@ processUrl () {
 
 
     echo "++++++++++++++++++++ "$singleSite" ++++++++++++++++++++"
-    echo "ORIGINAL "$site" ORIGINAL"
+    echo "ORIGINAL "$singleSite" ORIGINAL"
 
 
 
@@ -44,11 +44,20 @@ processUrl () {
         add to wishlist
         description
 
-        ----- It should be the first one!!
+        ----- It maybe the first one!!
 
         ----- EXCLUSION TERMS
          - below
          -
+========== product description ==========
+         record separator for product description:
+          - description
+          - shipping (this helps exclude from shiping price)
+          - double next line
+          -
+
+          requirements:
+           - choose the longest paragraph after all filters
 
         '
 
@@ -101,6 +110,9 @@ rm -v ./middle/*txt
 
 
 
+# ---------- remove duplicates
+cat -n ./input/input.csv | sort -uk2 | sort -nk1  | \
+    cut -f2- > ./input/input-cleaned.csv
 
 IFS=","
 # _rec1 to _rec6 is urls
@@ -110,4 +122,4 @@ do
     # ----- we dont need to check for headers
     someInitialChecks
     processUrl
-done < ./input/input927.csv
+done < ./input/input-cleaned.csv
