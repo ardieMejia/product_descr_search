@@ -24,7 +24,7 @@ processUrl () {
 
     w3m -dump $site > ./middle/$singleSite.txt
     sed -i 's/•/./g' ./middle/$singleSite.txt; sed -i 's/□/./g' ./middle/$singleSite.txt; sed -i 's/☆/./g' ./middle/$singleSite.txt
-    repooutputpath=./processed/w3m/${singleSite}-output.txt
+    descriptionOutputPath=./processed/w3m/${singleSite}-output.txt
 
 
 
@@ -33,10 +33,82 @@ processUrl () {
 
 
 
-    recordSeparator="[:.!]"
 
 
-    : '
+
+    echo "---------- description ----------" >> $descriptionOutputPath
+    termsArray=("car" "steering" "wheel")
+
+    num=1
+    for i in ${termsArray[@]}
+    do
+        if [[ $num -eq 1 ]]; then
+            termsString='tolower($0) ~ "'${termsArray[0]}'"'
+        else
+            termsString+=' && tolower($0) ~ "'$i'" '
+        fi
+        num=$((num+1))
+    done
+    # echo $termsString
+
+
+    stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
+    # ========== reading from source file, makes string-building not clash with managing the outer ''
+    echo $stringBuilder > ./docs/awkSource.txt
+    echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt > $descriptionOutputPath
+}
+
+
+localTest () {
+
+
+    raw="asdasd car steering adasd wheel "
+
+
+    termsArray=("car" "steering" "wheel")
+
+    fullString='{if($0 ~ "car") print ""; print ""; print $0}'
+    fullString='{print $0}'
+
+    echo "---------- description ----------" >> $descriptionOutputPath
+
+
+    num=1
+    for i in ${termsArray[@]}
+    do
+        if [[ $num -eq 1 ]]; then
+            termsString='tolower($0) ~ "'${termsArray[0]}'"'
+        else
+            termsString+=' && tolower($0) ~ "'$i'" '
+        fi
+        num=$((num+1))
+    done
+    echo $termsString
+
+
+    stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
+    # ========== reading from source file, makes string-building not clash with managing the outer ''
+    echo $stringBuilder > ./docs/awkSource.txt
+    echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt > $descriptionOutputPath
+
+
+}
+
+
+
+
+
+
+
+
+# ---------- this syntax will not work for words
+# recordSeparator="[:.!]"
+
+
+
+
+
+: '
         product code
         piece
         qty
@@ -59,38 +131,32 @@ processUrl () {
           requirements:
            - choose the longest paragraph after all filters
 
+
+
+
+after that, must contain keywords, like car and steering, and (preferably searched through google)
+and THEN! only search for longer ones
+
+
         '
-
-
-
-
-    echo "---------- every ----------" >> $repooutputpath
-    echo $raw | awk 'BEGIN{RS="'$recordSeparator'"}{if(tolower($0) ~ "commission" && tolower($0) ~ "%" && tolower($0) ~ "every") print $0}' >> $repooutputpath
-
-
-
-
-
-}
 
 
 
 someInitialChecks () {
 
 
-    if [[ hardFile -eq 1 ]]; then
-        reponame="mytest"
+    if [[ localOnly -eq 1 ]]; then
+        descriptionOutputPath=./processed/filter-test-output.txt
     fi
 }
 
 
 
 
-
-
-
 localOnly=0
-hardFile=0 # ---------- harder than localOnly
+recordSeparator="description|\n"
+
+
 
 if [[ ! -d middle ]];then
     mkdir ./middle
@@ -103,7 +169,7 @@ if [[ ! -d tmp ]];then
 fi
 
 # ===== clean some files
-rm -v ./middle/*txt
+rm -v ./middle/*txt ./processed/w3m/*
 
 
 
@@ -114,12 +180,16 @@ rm -v ./middle/*txt
 cat -n ./input/input.csv | sort -uk2 | sort -nk1  | \
     cut -f2- > ./input/input-cleaned.csv
 
-IFS=","
-# _rec1 to _rec6 is urls
-# _rec7 is output file name
-while read -r site
-do
-    # ----- we dont need to check for headers
+if [[ $localOnly -eq 1 ]]; then
     someInitialChecks
-    processUrl
-done < ./input/input-cleaned.csv
+    localTest
+else
+    IFS=","
+    # _rec1 to _rec6 is urls
+    # _rec7 is output file name
+    while read -r site
+    do
+        # ----- we dont need to check for headers
+        processUrl
+    done < ./input/input-cleaned.csv
+fi
