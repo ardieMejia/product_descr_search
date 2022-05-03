@@ -26,18 +26,17 @@ processUrl () {
 
 
     echo "---------- description ----------" >> $descriptionOutputPath
-    termsArray=("car" "steering" "wheel")
+    termsArray=("car" "&&" "steering" "&&" "wheel")
+    length=${#termsArray[@]}
 
-    num=1
-    for i in ${termsArray[@]}
-    do
-        if [[ $num -eq 1 ]]; then
-            termsString='tolower($0) ~ "'${termsArray[0]}'"'
-        else
-            termsString+=' && tolower($0) ~ "'$i'" '
-        fi
-        num=$((num+1))
-    done
+    for (( i=0; $i < $length; i=$((i+2)) )){
+            if [[ $i -eq 0 ]]; then
+                termsString='tolower($0) ~ "'${termsArray[0]}'"'
+            else
+                termsString+=' '${termsArray[$((i - 1))]}' '
+                termsString+=' tolower($0) ~ "'${termsArray[$i]}'" '
+            fi
+        }
 
     stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
     # ========== reading from source file, makes string-building not clash with managing the outer ''
