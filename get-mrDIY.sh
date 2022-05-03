@@ -7,26 +7,15 @@
 processUrl () {
 
 
-
-
-
-    echo
-    echo
     LsingleSite=$(echo $site | awk '{gsub("https://","");gsub("\.","-");gsub("/","-");print $0}')
     singleSite=$(echo $LsingleSite | awk 'BEGIN{FS="?"}{print $1}')
     singleSite=${singleSite:0:100}
 
-
     echo "++++++++++++++++++++ "$singleSite" ++++++++++++++++++++"
-    echo "ORIGINAL "$singleSite" ORIGINAL"
-
-
 
     w3m -dump $site > ./middle/$singleSite.txt
     sed -i 's/•/./g' ./middle/$singleSite.txt; sed -i 's/□/./g' ./middle/$singleSite.txt; sed -i 's/☆/./g' ./middle/$singleSite.txt
     descriptionOutputPath=./processed/w3m/${singleSite}-output.txt
-
-
 
     raw=$(cat ./middle/$singleSite.txt)
 
@@ -49,29 +38,21 @@ processUrl () {
         fi
         num=$((num+1))
     done
-    # echo $termsString
-
 
     stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
     # ========== reading from source file, makes string-building not clash with managing the outer ''
     echo $stringBuilder > ./docs/awkSource.txt
     echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt > $descriptionOutputPath
+
 }
 
 
 localTest () {
 
-
     raw="asdasd car steering adasd wheel "
-
-
     termsArray=("car" "steering" "wheel")
 
-    fullString='{if($0 ~ "car") print ""; print ""; print $0}'
-    fullString='{print $0}'
-
     echo "---------- description ----------" >> $descriptionOutputPath
-
 
     num=1
     for i in ${termsArray[@]}
@@ -85,12 +66,10 @@ localTest () {
     done
     echo $termsString
 
-
     stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
     # ========== reading from source file, makes string-building not clash with managing the outer ''
     echo $stringBuilder > ./docs/awkSource.txt
     echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt > $descriptionOutputPath
-
 
 }
 
