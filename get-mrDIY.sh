@@ -6,42 +6,50 @@
 
 processUrl () {
 
+    for site in ${url_array[@]};
+    do
+        echo "=========="$site"=========="
+        LsingleSite=$(echo $site | awk '{gsub("https://","");gsub("\.","-");gsub("/","-");print $0}')
+        singleSite=$(echo $LsingleSite | awk 'BEGIN{FS="?"}{print $1}')
+        singleSite=${singleSite:0:100}
 
-    LsingleSite=$(echo $site | awk '{gsub("https://","");gsub("\.","-");gsub("/","-");print $0}')
-    singleSite=$(echo $LsingleSite | awk 'BEGIN{FS="?"}{print $1}')
-    singleSite=${singleSite:0:100}
+        echo "++++++++++++++++++++ "$singleSite" ++++++++++++++++++++"
 
-    echo "++++++++++++++++++++ "$singleSite" ++++++++++++++++++++"
+        w3m -dump $site > ./middle/$singleSite.txt
+        sed -i 's/•/./g' ./middle/$singleSite.txt; sed -i 's/□/./g' ./middle/$singleSite.txt; sed -i 's/☆/./g' ./middle/$singleSite.txt
+        descriptionOutputPath=./processed/w3m/${singleSite}-output.txt
 
-    w3m -dump $site > ./middle/$singleSite.txt
-    sed -i 's/•/./g' ./middle/$singleSite.txt; sed -i 's/□/./g' ./middle/$singleSite.txt; sed -i 's/☆/./g' ./middle/$singleSite.txt
-    descriptionOutputPath=./processed/w3m/${singleSite}-output.txt
-
-    raw=$(cat ./middle/$singleSite.txt)
-
-
-
-
+        raw=$(cat ./middle/$singleSite.txt)
 
 
 
-    echo "---------- description ----------" >> $descriptionOutputPath
-    termsArray=("car" "&&" "steering" "&&" "wheel")
-    length=${#termsArray[@]}
 
-    for (( i=0; $i < $length; i=$((i+2)) )){
-            if [[ $i -eq 0 ]]; then
-                termsString='tolower($0) ~ "'${termsArray[0]}'"'
-            else
-                termsString+=' '${termsArray[$((i - 1))]}' '
-                termsString+=' tolower($0) ~ "'${termsArray[$i]}'" '
-            fi
-        }
 
-    stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
-    # ========== reading from source file, makes string-building not clash with managing the outer ''
-    echo $stringBuilder > ./docs/awkSource.txt
-    echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt > $descriptionOutputPath
+
+
+        echo "---------- description ----------" >> $descriptionOutputPath
+        echo "" >> $single_out_path
+        echo "---------- description ----------" >> $single_out_path
+        termsArray=("car" "&&" "steering" "&&" "wheel")
+        length=${#termsArray[@]}
+
+        for (( i=0; $i < $length; i=$((i+2)) )){
+                if [[ $i -eq 0 ]]; then
+                    termsString='tolower($0) ~ "'${termsArray[0]}'"'
+                else
+                    termsString+=' '${termsArray[$((i - 1))]}' '
+                    termsString+=' tolower($0) ~ "'${termsArray[$i]}'" '
+                fi
+            }
+
+            stringBuilder='BEGIN{RS="'$recordSeparator'"} { if( '$termsString' ) print $0} '
+            # ========== reading from source file, makes string-building not clash with managing the outer ''
+            echo $stringBuilder > ./docs/awkSource.txt
+            echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt >> $descriptionOutputPath
+            echo $raw | awk '{print tolower($0)} ' | awk  -f ./docs/awkSource.txt >> $single_out_path
+        done
+
+
 
 }
 
@@ -132,6 +140,7 @@ someInitialChecks () {
 
 
 localOnly=0
+single_out_path=./processed/all-output.txt
 recordSeparator="description|\n"
 
 
@@ -147,7 +156,8 @@ if [[ ! -d tmp ]];then
 fi
 
 # ===== clean some files
-rm -v ./middle/*txt ./processed/w3m/*
+rm -v ./middle/*txt ./processed/w3m/* $single_out_path
+touch $single_out_path
 
 
 
@@ -165,9 +175,12 @@ else
     IFS=","
     # _rec1 to _rec6 is urls
     # _rec7 is output file name
-    while read -r site
+    url_array=()
+    while read -r i
     do
-        # ----- we dont need to check for headers
-        processUrl
+        url_array+=($i)
     done < ./input/input-cleaned.csv
+    processUrl
+
+
 fi
